@@ -1,4 +1,4 @@
-@echo on
+@echo off
 
 echo "Starting Testsigma Server"
 SET WORKING_FOLDER1=%~dp0
@@ -17,16 +17,16 @@ IF EXIST %TS_DATA_DIR% (
     echo "Testsigma Data Directory already exists"
 )
 
-IF NOT EXIST %TS_DATA_DIR% (
-    mkdir %TS_DATA_DIR%
+IF NOT EXIST "%TS_DATA_DIR%" (
+    mkdir "%TS_DATA_DIR%"
 )
 
-IF EXIST %TS_ROOT_DIR%\authentication.properties (
-    IF NOT EXIST %TS_DATA_DIR%\authentication.properties (
+IF EXIST "%TS_ROOT_DIR%\authentication.properties" (
+    IF NOT EXIST "%TS_DATA_DIR%\authentication.properties" (
         echo %TS_ROOT_DIR%\authentication.properties
         echo %TS_DATA_DIR%\authentication.properties
         echo "Identified the misplaced authentication.properties. Copying to correct location"
-        copy %TS_ROOT_DIR%\authentication.properties %TS_DATA_DIR%\authentication.properties
+        copy "%TS_ROOT_DIR%\authentication.properties" %TS_DATA_DIR%\authentication.properties
 
     )
 )
